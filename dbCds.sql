@@ -188,7 +188,7 @@ insert into tbDependentes (codDep, codFunc, nomeDep, sexoDep) values (5, 3, 'Mar
 insert into tbDependentes (codDep, codFunc, nomeDep, sexoDep) values (6, 4, 'Sonia Da Silva', 'F');
 
 insert into tbTitulos (codTit, codCat, codGrav, nomeCd, valCd, qtdEstq) values (1,1,1,'Trabalhistas',30.00,1500);
-insert into tbTitulos (codTit, codCat, codGrav, nomeCd, valCd, qtdEstq) values (2,1,2,'Tropicália',50.00,500);
+insert into tbTitulos (codTit, codCat, codGrav, nomeCd, valCd, qtdEstq) values (2,1,2,'Tropicalia',50.00,500);
 insert into tbTitulos (codTit, codCat, codGrav, nomeCd, valCd, qtdEstq) values (3,1,1,'Aquele Abraço',50.00,600);
 insert into tbTitulos (codTit, codCat, codGrav, nomeCd, valCd, qtdEstq) values (4,1,2,'Refazenda',60.00,1000);
 insert into tbTitulos (codTit, codCat, codGrav, nomeCd, valCd, qtdEstq) values (5,1,3,'Totalmente Demais',50.00,2000);
@@ -252,32 +252,19 @@ select * from tbTitulosPedidos;
 --1. Selecione o nome dos CDs e o nome da gravadora de cada CD.
 --Resposta:
 
-<<<<<<< HEAD
 select tit.nomeCd, gra.nomeGrav
 from tbTitulos tit inner join tbGravadoras gra on tit.codGrav = gra.codGrav;
-=======
-select t.nomeCd, g.nomeGrav
-from tbTitulos t inner join tbGravadoras g on t.codGrav = g.codGrav;
-
->>>>>>> dd4398b05c1ec21be175642e743b75dd94ceb317
 
 --2. Selecione o nome dos CDs e o nome da categoria de cada CD.
 --Resposta:
 
-<<<<<<< HEAD
 select tit.nomeCd, cat.nomeCat
 from tbTitulos tit inner join tbCategorias cat on tit.codCat = cat.codCat;
-=======
-select t.nomeCd, c.nomeCat
-from tbTitulos t inner join tbCategorias c on t.codCat = c.codCat;
-
->>>>>>> dd4398b05c1ec21be175642e743b75dd94ceb317
 
 --3. Selecione o nome dos CDs, o nome das gravadoras de cada CD e o nome da categoria de cada CD.
 --Resposta:
 
 select tit.nomeCd, gra.nomeGrav, cat.nomeCat
-<<<<<<< HEAD
 from tbTitulos tit inner join tbGravadoras gra on tit.codGrav = gra.codGrav inner join tbCategorias cat ON tit.codCat = cat.codCat;
 
 --4. Selecione o nome dos clientes e os títulos dos CDs vendidos em cada pedido que o cliente fez.
@@ -285,59 +272,37 @@ from tbTitulos tit inner join tbGravadoras gra on tit.codGrav = gra.codGrav inne
 
 select cli.nomeCli, tit.nomeCd
 from tbClientes cli join tbPedidos ped on cli.codCli = ped.codCli join tbTitulosPedidos tp on ped.numPed = tp.numPed join tbTitulos tit on tp.codTit = tit.codTit;
-=======
-from tbTitulos tit join tbGravadoras gra on tit.codGrav = gra.codGrav join tbCategorias cat ON tit.codCat = cat.codCat;
-
-
---4. Selecione o nome dos clientes e os títulos dos CDs vendidos em cada pedido que o cliente fez.
---Resposta:
-select cli.nomeCli, tit.nomeCd
-from tbClientes cli join tbPedidos ped on
-
->>>>>>> dd4398b05c1ec21be175642e743b75dd94ceb317
 
 --5. Selecione o nome do funcionário, número, data e valor dos pedidos que este funcionário registrou, além do nome do cliente que está fazendo o pedido.
 --Resposta:
 
-<<<<<<< HEAD
 select func.nomeFunc, ped.numPed, ped.dataPed, ped.valPed, cli.nomeCli
 from tbFuncionarios func join tbPedidos ped ON func.codFunc = ped.codFunc join tbClientes cli ON ped.codCli = cli.codCli;
-=======
->>>>>>> dd4398b05c1ec21be175642e743b75dd94ceb317
-
+ 
 --6. Selecione o nome dos funcionários e o nome de todos os dependentes de cadafuncionário.
 --Resposta:
 
-<<<<<<< HEAD
 select func.nomeFunc, dep.nomeDep
 from tbFuncionarios func join tbDependentes dep on func.codFunc = dep.codFunc;
-=======
->>>>>>> dd4398b05c1ec21be175642e743b75dd94ceb317
 
 --7. Selecione o nome dos clientes e o nome dos cônjuges de cada cliente.
 --Resposta:
 
-<<<<<<< HEAD
 select cli.nomeCli, conj.nomeConj
 from tbClientes cli join tbConjuge conj on cli.codCli = conj.codCli;	
-=======
->>>>>>> dd4398b05c1ec21be175642e743b75dd94ceb317
+
 
 --8. Selecione o nome de todos os clientes. Se estes possuem cônjuges, mostrar os nomesde seus cônjuges também.
 --Resposta:
 
-<<<<<<< HEAD
 select cli.nomeCli, conj.nomeConj
-from tbClientes cli left join tbConjuge conj on cli.codCli = conj.codCli;
-=======
->>>>>>> dd4398b05c1ec21be175642e743b75dd94ceb317
+from tbClientes cli right join tbConjuge conj on cli.codCli = conj.codCli;
 
 --9. Selecione nome do cliente, nome do cônjuge, número do pedido que cada cliente fez,valor de cada pedido que cada cliente fez e código do funcionário que atendeu a cadapedido.
 --Resposta:
 
-<<<<<<< HEAD
 select cli.nomeCli, conj.nomeConj, ped.numPed, ped.valPed, ped.codFunc
-from tbClientes cli left join tbConjuge conj on cli.codCli = conj.codCli join tbPedidos ped on cli.codCli = ped.codCli;
+from tbClientes cli right join tbConjuge conj on cli.codCli = conj.codCli join tbPedidos ped on cli.codCli = ped.codCli;
 
 
 --Laboratório
@@ -346,7 +311,8 @@ from tbClientes cli left join tbConjuge conj on cli.codCli = conj.codCli join tb
 
 --1. Exiba quantos pedidos cada cliente fez. 
 --Resposta: 
-select sum(numPed) from tbTitulosPedidos;
+select cli.nomecli, sum(ped.numPed) as 'quantidade de pedidos' 
+from tbpedidos ped join tbClientes cli on cli.codCli = ped.codCli;
 
 --2. Exiba quantos CDs possui cada categoria. 
 --Resposta: 
@@ -382,5 +348,3 @@ select sum(codGrav) from tbGravadoras;
 
 --10. Exiba quantos dependentes cada funcionário possui, mostrando seus nomes. 
 --Resposta: 
-=======
->>>>>>> dd4398b05c1ec21be175642e743b75dd94ceb317
